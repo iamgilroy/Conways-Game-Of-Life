@@ -22,7 +22,7 @@ let isPlaying = false;
 let updateCount = 0;
 let currentTrack;
 function preload() {
-  img = loadImage("ConwaysGOL2.png");
+  img = loadImage("ConwaysGOL.png");
   loadedTracks = tracks.map((track) => loadSound(track));
 }
 
