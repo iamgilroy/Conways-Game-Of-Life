@@ -141,7 +141,7 @@ function displayGrid() {
       let imgColor = img.get(i * cellSize, j * cellSize);
       if (grid[i][j] === 1 && imgColor[3] < 255) {
         fill(foregroundColor);
-        let shape = random(['circle',]);
+        let shape = random(['circle']);
         drawCellShape(i * cellSize, j * cellSize, cellSize, shape);
       } else {
         fill(backgroundColor);
@@ -156,12 +156,7 @@ function drawCellShape(x, y, size, shape) {
     case 'circle':
       ellipse(x + size / 2, y + size / 2, size, size);
       break;
-    case 'triangle':
-      triangle(x, y + size, x + size / 2, y, x + size, y + size);
-      break;
-    default:
-      rect(x, y, size, size);
-      break;
+    
   }
 }
 
