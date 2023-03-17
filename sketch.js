@@ -138,13 +138,30 @@ function createRandomGrid() {
 function displayGrid() {
   for (let i = 0; i < gridWidth; i++) {
     for (let j = 0; j < gridHeight; j++) {
-      if (grid[i][j] === 1) {
+      let imgColor = img.get(i * cellSize, j * cellSize);
+      if (grid[i][j] === 1 && imgColor[3] < 255) {
         fill(foregroundColor);
+        let shape = random(['circle',]);
+        drawCellShape(i * cellSize, j * cellSize, cellSize, shape);
       } else {
         fill(backgroundColor);
+        rect(i * cellSize, j * cellSize, cellSize, cellSize);
       }
-      rect(i * cellSize, j * cellSize, cellSize, cellSize);
     }
+  }
+}
+
+function drawCellShape(x, y, size, shape) {
+  switch (shape) {
+    case 'circle':
+      ellipse(x + size / 2, y + size / 2, size, size);
+      break;
+    case 'triangle':
+      triangle(x, y + size, x + size / 2, y, x + size, y + size);
+      break;
+    default:
+      rect(x, y, size, size);
+      break;
   }
 }
 
